@@ -81,6 +81,36 @@ const personGenerator = {
             "id_10": "Андреевна"
         }
     }`,
+    professionalMaleJson: `{
+        "count": 10,
+        "list": {     
+            "id_1": "Водитель",
+            "id_2": "Шахтер",
+            "id_3": "Слесарь",
+            "id_4": "Учитель",
+            "id_5": "Лаборант",
+            "id_6": "Актер",
+            "id_7": "Солдат",
+            "id_8": "Стропальщик",
+            "id_9": "Инженер",
+            "id_10": "Программист"
+        }
+    }`,
+    professionalFeMaleJson: `{
+        "count": 10,
+        "list": {     
+            "id_1": "Медсестра",
+            "id_2": "Продавец",
+            "id_3": "Уборщица",
+            "id_4": "Учитель",
+            "id_5": "Лаборант",
+            "id_6": "Актриса",
+            "id_7": "Стюардесса",
+            "id_8": "Ткачиха",
+            "id_9": "Инженер",
+            "id_10": "Дизайнер"
+        }
+    }`,
 
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
@@ -115,7 +145,15 @@ const personGenerator = {
                 return this.randomValue(this.firstNameFeMaleJson);  
             }
     },
-
+    randomProfession: function() {
+        if (gender == 'Мужчина') {
+  
+              return this.randomValue(this.professionalMaleJson);
+           }
+           else {
+               return this.randomValue(this.professionalFeMaleJson);  
+           }
+   },
 
      randomSecondName: function() {
         if (gender == 'Мужчина') {
@@ -144,7 +182,7 @@ const personGenerator = {
         this.person.firstName = this.randomFirstName();
         this.person.surname = this.randomSurname();
         this.person.secondName = this.randomSecondName();
-      //  this.person.professionOutput = this.randomprofession();
+        this.person.professionOutput = this.randomProfession();
        
         return this.person;
     },

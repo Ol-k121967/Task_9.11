@@ -4,7 +4,7 @@ document.getElementById('btn_generace').addEventListener('click', function () {
     document.getElementById('surnameOutput').innerText = initPerson.surname;
     document.getElementById('secondNameOutput').innerText = initPerson.secondName ;
     document.getElementById('genderOutput').innerText = initPerson.genderName ;
-  //  document.getElementById('professionOutput').innerText = initPerson.professionOutput ;
+    document.getElementById('professionOutput').innerText = initPerson.professionOutput ;
 })
 
 
