@@ -5,12 +5,12 @@ document.getElementById('btn_generace').addEventListener('click', function () {
 
 
 document.getElementById('btn_reset').addEventListener('click', function () {
-    document.getElementById('firstNameOutput').innerText = 'Имя';
-    document.getElementById('secondNameOutput').innerText = 'Отчество';
-    document.getElementById('genderOutput').innerText = 'Генерация пола';
-    document.getElementById('birthYearOutput').innerText = 'Генерация года рождения';
-    document.getElementById('surnameOutput').innerText = 'Генерация фамилии';
-    document.getElementById('professionOutput').innerText = 'Профессия';
+    document.getElementById('firstNameOutput').innerText = '';
+    document.getElementById('secondNameOutput').innerText = '';
+    document.getElementById('genderOutput').innerText = '';
+    document.getElementById('birthYearOutput').innerText = '';
+    document.getElementById('surnameOutput').innerText = '';
+    document.getElementById('professionOutput').innerText = '';
 })
 
 
