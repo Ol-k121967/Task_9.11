@@ -5,6 +5,7 @@ document.getElementById('btn_generace').addEventListener('click', function () {
     document.getElementById('secondNameOutput').innerText = initPerson.secondName ;
     document.getElementById('genderOutput').innerText = initPerson.genderName ;
     document.getElementById('professionOutput').innerText = initPerson.professionOutput ;
+    document.getElementById('birthYearOutput').innerText = initPerson.birthYear;
 })
 
 

@@ -1,4 +1,6 @@
 let gender = '';
+let dey = '';
+let god = 1950;
 const personGenerator = {
     surnameJson: `{  
         "count": 15,
@@ -111,6 +113,23 @@ const personGenerator = {
             "id_10": "Дизайнер"
         }
     }`,
+    BirthYear: `{
+        "count": 12,
+        "list": {     
+            "id_1": "января",
+            "id_2": "февраля",
+            "id_3": "марта",
+            "id_4": "апреля",
+            "id_5": "мая",
+            "id_6": "июня",
+            "id_7": "июля",
+            "id_8": "августа",
+            "id_9": "сентября",
+            "id_10": "октября",
+            "id_11": "ноября",
+            "id_12": "декабря"
+        }
+    }`,
 
     GENDER_MALE: 'Мужчина',
     GENDER_FEMALE: 'Женщина',
@@ -124,6 +143,26 @@ const personGenerator = {
         const obj = JSON.parse(json);
         const prop = `id_${this.randomIntNumber(obj.count, 1)}`;  // this = personGenerator
         return obj.list[prop];
+    },
+
+    randomBirthYear: function () {
+        const obj = JSON.parse(this.BirthYear);
+        const numb = this.randomIntNumber(obj.count, 1) // номер месяца
+        const prop = `id_${numb}`;  // порядковый номер месяца
+        if (numb == 1 || numb == 3 || numb == 5 || numb == 7 || numb == 8 || numb == 10 || numb == 12) {
+        dey = (this.randomIntNumber(31, 1)).toString();
+        } else if (numb == 2) {
+            dey = (this.randomIntNumber(28, 1)).toString();
+            console.log(dey + ' 2');
+            console.log(dey + ' 2');
+        } else {
+            dey = (this.randomIntNumber(30, 1)).toString();
+        }
+        const mount = obj.list[prop];
+        god = this.randomIntNumber(65, 1);
+       const randomBirthYeardey = dey + " " + mount + " " + (2005 - god).toString() + " года";
+       // год рождения от 1940 до 2005 возраст от 17 лет до 82
+       return randomBirthYeardey;
     },
 
     randomGender: function() {
@@ -183,6 +222,7 @@ const personGenerator = {
         this.person.surname = this.randomSurname();
         this.person.secondName = this.randomSecondName();
         this.person.professionOutput = this.randomProfession();
+        this.person.birthYear = this.randomBirthYear();
        
         return this.person;
     },
