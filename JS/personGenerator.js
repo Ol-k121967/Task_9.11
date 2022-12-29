@@ -53,36 +53,6 @@ const personGenerator = {
             "id_10": "Андрей"
         }
     }`,
-    secondNameMaleJson: `{
-        "count": 10,
-        "list": {     
-            "id_1": "Александрович",
-            "id_2": "Максимович",
-            "id_3": "Иваныч",
-            "id_4": "Артемович",
-            "id_5": "Дмитриевич",
-            "id_6": "Никитович",
-            "id_7": "Михаилович",
-            "id_8": "Даниилович",
-            "id_9": "Егорович",
-            "id_10": "Андреевич"
-        }
-    }`,
-    secondNameFeMaleJson: `{
-        "count": 10,
-        "list": {     
-            "id_1": "Александровна",
-            "id_2": "Максимовна",
-            "id_3": "Ивановна",
-            "id_4": "Артемовна",
-            "id_5": "Дмитриевна",
-            "id_6": "Никитовна",
-            "id_7": "Михайловна",
-            "id_8": "Данииловна",
-            "id_9": "Егоровна",
-            "id_10": "Андреевна"
-        }
-    }`,
     professionalMaleJson: `{
         "count": 10,
         "list": {     
@@ -153,9 +123,7 @@ const personGenerator = {
         dey = (this.randomIntNumber(31, 1)).toString();
         } else if (numb == 2) {
             dey = (this.randomIntNumber(28, 1)).toString();
-            console.log(dey + ' 2');
-            console.log(dey + ' 2');
-        } else {
+            } else {
             dey = (this.randomIntNumber(30, 1)).toString();
         }
         const mount = obj.list[prop];
@@ -195,12 +163,42 @@ const personGenerator = {
    },
 
      randomSecondName: function() {
+         let secondNameMale = this.randomValue(this.firstNameMaleJson);
         if (gender == 'Мужчина') {
-     
-            return this.randomValue(this.secondNameMaleJson);
+ 
+          if (secondNameMale.substr(-1, 1) == 'а')  { 
+            secondNameMale = secondNameMale.replace('а','ович');
+            return secondNameMale;
+         }
+         else if (secondNameMale.substr(-1, 1) == 'й') {
+            secondNameMale = secondNameMale.replace('й','евич');
+            return secondNameMale;  
+         }
+         else if (secondNameMale.substr(-3, 3) == 'аил') {
+            secondNameMale = secondNameMale.replace('ил','йлович');
+            return secondNameMale;  
          }
          else {
-        return this.randomValue(this.secondNameFeMaleJson);
+            return secondNameMale + 'ович';   
+         }
+        }
+         else {
+            if (secondNameMale.substr(-1, 1) == 'а')  { 
+                secondNameMale = secondNameMale.replace('а','овна');
+                 return secondNameMale;
+             }
+             else if (secondNameMale.substr(-1, 1) == 'й') {
+                secondNameMale = secondNameMale.replace('й','евна');
+                    return secondNameMale;  
+             }
+             else if (secondNameMale.substr(-3, 3) == 'аил') {
+                secondNameMale = secondNameMale.replace('ил','йловна');
+                    return secondNameMale;  
+             }
+             else {
+                secondNameFeMale = this.randomValue(this.firstNameMaleJson);
+                return secondNameMale + 'овна';  
+             }
          }
     },
 
